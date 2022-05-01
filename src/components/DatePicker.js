@@ -1,16 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
-import './DataPicker.scss';
+import './DatePicker.scss';
+import leftArrow from '../icons/leftArrow.png';
+import rightArrow from '../icons/rightArrow.png';
 const DatePicker = () => {
+  const currentDate = moment();
   return (
     <div className="datePickerWrapper">
-      <Days />
+      {/* <Head /> */}
+      <span>
+        {currentDate.format('YYYY')}년 {currentDate.format('MM')}월{' '}
+      </span>
+      <img
+        src={leftArrow}
+        onClick={e => {
+          currentDate.subtract(1, 'month');
+        }}
+      />
+      <img
+        src={rightArrow}
+        onClick={e => {
+          currentDate.subtract(-1, 'month');
+        }}
+      />
+      <Days currentDate={currentDate} />
     </div>
   );
 };
 
-export const Days = () => {
+export const Head = () => {
   const currentDate = moment();
+  const onClickNextMonth = () => {};
+  const onclickPrevMonth = () => {};
+  return (
+    <>
+      <span>
+        {currentDate.format('YYYY')}년 {currentDate.format('MM')}월{' '}
+      </span>
+      <img src={leftArrow} onClick={e => {}} />
+      <img src={rightArrow} onClick={e => {}} />
+    </>
+  );
+};
+export const Days = DaysProps => {
+  const { currentDate } = DaysProps;
   const firstDate = moment(currentDate).startOf('month');
   const monthDays = moment(currentDate).daysInMonth();
   const prevMonth = moment(currentDate).subtract(1, 'month');
@@ -51,9 +84,32 @@ export const Days = () => {
 
 const Day = DayProps => {
   const { date } = DayProps;
+
+  function getStyleFromDate(date) {
+    const startDate = moment().subtract(0, 'day');
+    const endDate = moment().subtract(-30, 'day');
+
+    let style = [];
+
+    if (
+      date.isSame(startDate, 'day') ||
+      date.isSame(endDate, 'day') ||
+      date.isBetween(startDate, endDate, 'day')
+    ) {
+      style.push('selected');
+    }
+    if (date.isBefore(startDate, 'day') || date.isAfter(endDate, 'day')) {
+      style.push('inactiove');
+    } else {
+      style.push('default');
+    }
+
+    return style.join(' ');
+  }
+
   return (
     <>
-      <span>{date.date()}</span>
+      <span className={getStyleFromDate(date)}>{date.date()}</span>
     </>
   );
 };
