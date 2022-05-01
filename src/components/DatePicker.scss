@@ -16,5 +16,25 @@
     line-height: 28px;
     text-align: center;
     color: #333333;
+
+    &:hover {
+      background-color: #e2ebff;
+      color: #4c80f1;
+      border-radius: 50%;
+    }
+    &.default {
+      color: #333333;
+    }
+    &.inactiove {
+      background-color: white;
+      color: #dadbdf;
+    }
+    &.selected {
+      background-color: #4c80f1;
+      border-radius: 50%;
+      &:hover {
+        background-color: #2d61d0;
+      }
+    }
   }
 }
