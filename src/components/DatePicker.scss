@@ -1,0 +1,20 @@
+.datePickerWrapper {
+  // width: 320px;
+}
+.daysWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 320px;
+  span {
+    width: 32px;
+    height: 32px;
+    margin: 12px 5px;
+    font-family: 'Noto Sans CJK KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    color: #333333;
+  }
+}
