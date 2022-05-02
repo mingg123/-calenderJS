@@ -1,0 +1,27 @@
+.daysWrapper {
+  width: 320px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+
+  .dayOfWeek {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px 12px 0px 0px;
+  }
+  .daysContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .dayContent {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 12px 0px 0px;
+    }
+  }
+}

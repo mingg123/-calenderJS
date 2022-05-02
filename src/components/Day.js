@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import "./Days.scss";
 
 const Day = (DayProps) => {
   const { isStart, date, newDate, startDate, endDate, onClick } = DayProps;
-  return <div>{newDate.date()}</div>;
+  return <div className="dayContent">{newDate.date()}</div>;
 };
 
 const mapStateToProps = (state) => {

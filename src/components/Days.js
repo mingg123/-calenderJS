@@ -15,13 +15,14 @@ const Days = (DaysProps) => {
   const previousMonthDays = previousMonth.daysInMonth();
   const nextMonth = moment(date).add(1, "month");
 
+  const dayOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
   let days = [];
   for (let i = firstDayDate.day(); i > 1; i--) {
     previousMonth.date(previousMonthDays - i + 2);
 
     days.push(
       <Day
-        key={moment(previousMonth).format("DD MM YYYY")}
+        // key={moment(previousMonth).format("DD MM YYYY")}
         onClick={(date, isStart) => changeDate(date, isStart)}
         newDate={moment(previousMonth)}
         isStart={isStart}
@@ -34,7 +35,7 @@ const Days = (DaysProps) => {
 
     days.push(
       <Day
-        key={moment(currentDate).format("DD MM YYYY")}
+        // key={moment(currentDate).format("DD MM YYYY")}
         onClick={(date, isStart) => changeDate(date, isStart)}
         newDate={moment(currentDate)}
         isStart={isStart}
@@ -51,7 +52,7 @@ const Days = (DaysProps) => {
 
       days.push(
         <Day
-          key={moment(nextMonth).format("DD MM YYYY")}
+          //   key={moment(nextMonth).format("DD MM YYYY")}
           onClick={(date, isStart) => changeDate(date, isStart)}
           newDate={moment(nextMonth)}
           isStart={isStart}
@@ -60,7 +61,16 @@ const Days = (DaysProps) => {
     }
   }
 
-  return <div>{days.concat()}</div>;
+  return (
+    <div className="daysWrapper">
+      <div className="dayOfWeek">
+        {dayOfWeek.map((day) => {
+          return <span key={day}>{day}</span>;
+        })}
+      </div>
+      <div className="daysContent">{days.concat()}</div>
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {
