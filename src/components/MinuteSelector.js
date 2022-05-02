@@ -61,4 +61,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { setMinute })(MinuteSelector);
+const mapDispatchToProps = {
+  setMinute,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(MinuteSelector);

@@ -26,7 +26,11 @@ const CreateDateDialog = (CreateDateDialogProps) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {};
+const mapStateToProps = (state) => {
+  return {
+    open: state.dialogReducer.open,
+  };
+};
 
 const mapDispatchToProps = {
   closeDialog,
