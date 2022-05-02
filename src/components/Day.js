@@ -4,7 +4,32 @@ import "./Days.scss";
 
 const Day = (DayProps) => {
   const { isStart, date, newDate, startDate, endDate, onClick } = DayProps;
-  return <div className="dayContent">{newDate.date()}</div>;
+  function getStyleFromDateState(newDate) {
+    let style = [];
+    if (newDate.isBefore(startDate, "day")) {
+      style.push("inactive");
+    }
+    if (
+      newDate.isSame(startDate, "day") ||
+      newDate.isSame(endDate, "day") ||
+      newDate.isBetween(startDate, endDate, "day")
+    ) {
+      style.push("selected");
+    }
+    if (!newDate.isSame(date, "month")) {
+      style.push("muted");
+    }
+    return style.join(" ");
+  }
+
+  return (
+    <span
+      onClick={() => onClick(newDate, isStart)}
+      className={getStyleFromDateState(newDate)}
+    >
+      {newDate.date()}
+    </span>
+  );
 };
 
 const mapStateToProps = (state) => {

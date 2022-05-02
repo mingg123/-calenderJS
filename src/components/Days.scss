@@ -10,18 +10,53 @@
     justify-content: space-around;
     margin: 10px 12px 0px 0px;
   }
-  .daysContent {
+  .daysInner {
+    width: 100%;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    .dayContent {
+    span {
       width: 32px;
       height: 32px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #666666;
+      text-align: center;
+      user-select: none;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 10px 12px 0px 0px;
+      margin: 12px 14.3px 0 -2px;
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        color: #4c80f1;
+        background-color: #eaeff9;
+        border-radius: 50%;
+      }
+
+      &.inactive {
+        color: rgba(76, 128, 241, 0.2);
+      }
+
+      &.muted {
+        color: rgba(0, 0, 0, 0.3);
+      }
+
+      &.inactive,
+      .muted {
+        color: rgba(76, 128, 241, 0.2);
+      }
+      &.selected {
+        border-radius: 50%;
+        background-color: #4c80f1;
+        color: #ffffff;
+
+        &:hover {
+          background-color: #4371d4;
+        }
+      }
     }
   }
 }
