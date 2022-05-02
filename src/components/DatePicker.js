@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import moment from "moment";
 import { connect } from "react-redux";
 import { changeMonth } from "../modules/Date";
 import "./DatePicker.scss";
@@ -9,11 +8,21 @@ import Head from "./Head";
 
 const DatePicker = (DatePickerProps) => {
   const { isStart, startDate, endDate } = DatePickerProps;
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+
+  const onClickDatePickZoneOpen = () => {
+    setOpen(!open);
+  };
+
+  function getInputTitle() {
+    if (isStart) return startDate.format("LL");
+    else return endDate.format("LL");
+  }
 
   return (
     <div>
-      <div>
+      <div onClick={onClickDatePickZoneOpen}>
+        {getInputTitle()}
         <img src={downArrow} />
       </div>
       {open && (

@@ -1,10 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
-import CalenderDialog from './components/CalenderDialog';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.scss";
+import CreateDateDialog from "./dialog/CreateDateDialog";
 
 function App() {
-  return <CalenderDialog />;
+  return <CreateDateDialog />;
 }
 
 export default App;
