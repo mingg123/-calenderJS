@@ -7,13 +7,22 @@ import "./CreateDateDialog.scss";
 const CreateDateDialog = (CreateDateDialogProps) => {
   const { closeDialog } = CreateDateDialogProps;
   return (
-    <div className="wrapper">
-      <p className="modal-title">응시 기간 설정</p>
-      <DateSelectZone isStart={true} />
-      <br />
-      <DateSelectZone isStart={false} />
-      <button onClick={closeDialog}>취소</button>
-      <button onClick={closeDialog}>확인</button>
+    <div className="dialogWrapper">
+      <div className="dialogBack" onClick={closeDialog} />
+      <div className="dialogContainer">
+        <p className="dialogtitle">응시 기간 설정</p>
+        <DateSelectZone isStart={true} />
+        <div className="divider" />
+        <DateSelectZone isStart={false} />
+        <div className="dialogBtnWrapper">
+          <button className="dialogCancelBtn" onClick={closeDialog}>
+            취소
+          </button>
+          <button className="dialogApplyBtn" onClick={closeDialog}>
+            확인
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

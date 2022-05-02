@@ -1,7 +1,84 @@
-.wrapper {
-  width: 754px;
-  height: 505px;
-  border-radius: 8px;
-  padding: 40px 84px 40px 84px;
-  background-color: #ffffff;
+.dialogWrapper {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 3;
+  overflow: auto;
+
+  .dialogBack {
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 0.8;
+  }
+
+  .dialogContainer {
+    width: 754px;
+    height: 505px;
+    background-color: #ffffff;
+    padding: 40px 84px;
+    border-radius: 8px;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    z-index: 2;
+
+    .dialogtitle {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 65px;
+      color: #333333;
+    }
+
+    .divider {
+      width: 700px;
+      border: 1px solid #dadbdf;
+      margin: 32px 0;
+    }
+
+    .dialogBtnWrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 56px;
+
+      .dialogCancelBtn {
+        width: 80px;
+        height: 44px;
+        left: 410px;
+        top: 0px;
+
+        /* white */
+
+        background: #ffffff;
+        /* line */
+
+        border: 1px solid #dadbdf;
+        box-sizing: border-box;
+        border-radius: 8px;
+      }
+
+      .dialogApplyBtn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+
+        position: static;
+        width: 80px;
+        height: 44px;
+        left: 506px;
+        top: 0px;
+
+        margin-left: 16px;
+        /* blue */
+
+        background: #4c80f1;
+        border-radius: 8px;
+      }
+    }
+  }
 }
