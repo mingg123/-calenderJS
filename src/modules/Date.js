@@ -29,7 +29,9 @@ export default function dateReducer(state = initialState, action) {
     case CHANGE_MONTH: {
       return { ...state, date: state.date.month(action.payload).clone() };
     }
+
     case CHANGE_DATE: {
+      console.log(action.payload);
       const { startDate, endDate } = state;
       if (action.isStart) {
         if (isAfterEndTime(endDate, action.payload)) {

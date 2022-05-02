@@ -28,7 +28,7 @@ const DatePicker = (DatePickerProps) => {
       {open && (
         <div>
           <Head />
-          <Days isStart={true} />
+          <Days isStart={isStart} />
         </div>
       )}
     </div>

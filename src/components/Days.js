@@ -22,6 +22,7 @@ const Days = (DaysProps) => {
 
     days.push(
       <Day
+        key={moment(previousMonth)}
         onClick={(date, isStart) => changeDate(date, isStart)}
         newDate={moment(previousMonth)}
         isStart={isStart}
@@ -34,6 +35,7 @@ const Days = (DaysProps) => {
 
     days.push(
       <Day
+        key={moment(currentDate)}
         onClick={(date, isStart) => changeDate(date, isStart)}
         newDate={moment(currentDate)}
         isStart={isStart}
@@ -50,6 +52,7 @@ const Days = (DaysProps) => {
 
       days.push(
         <Day
+          key={moment(nextMonth)}
           onClick={(date, isStart) => changeDate(date, isStart)}
           newDate={moment(nextMonth)}
           isStart={isStart}
