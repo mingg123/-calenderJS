@@ -7,9 +7,13 @@ import { openDialog } from "./modules/Dialog";
 function App(AppProps) {
   const { open, openDialog } = AppProps;
   return (
-    <div>
-      <button onClick={openDialog}> 열기 </button>
-      {open && <CreateDateDialog />}
+    <div className="AppWrapper">
+      <div className="dialogBtnWrapper">
+        <button className="dialogBtn" onClick={openDialog}>
+          열기
+        </button>
+        {open && <CreateDateDialog />}
+      </div>
     </div>
   );
 }
