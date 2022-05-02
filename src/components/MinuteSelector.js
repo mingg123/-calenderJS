@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { setMinute } from "../modules/Time";
-import "./HourSelector.scss";
+import "./MinuteSelector.scss";
 import downArrow from "../icons/downArrow.png";
 
 const MinuteSelector = (MinuteSelectorProps) => {
@@ -20,28 +20,29 @@ const MinuteSelector = (MinuteSelectorProps) => {
   };
 
   return (
-    <div className="dropdown">
-      <div onClick={onClickMinuteZone}>
-        <span className="dropdown-title">{getMinutes(isStart)}</span>
-        <img className="dropdown-icon" src={downArrow} />
+    <div className="minuteSelector">
+      <div className="minuteSelectorWrapper" onClick={onClickMinuteZone}>
+        <span className="minuteTitle">{getMinutes()}</span>
+        <img src={downArrow} />
+
+        {open && (
+          <ul>
+            {minute.map((min) => {
+              return (
+                <li
+                  onClick={() => {
+                    setMinute(`${min} 분`, isStart);
+                    setOpen(false);
+                  }}
+                  key={min}
+                >
+                  {min} 분
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
-      {open && (
-        <ul>
-          {minute.map((min) => {
-            return (
-              <li
-                onClick={() => {
-                  setMinute(`${min} 분`, isStart);
-                  setOpen(false);
-                }}
-                key={min}
-              >
-                {min} 분
-              </li>
-            );
-          })}
-        </ul>
-      )}
     </div>
   );
 };

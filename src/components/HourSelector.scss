@@ -1,0 +1,24 @@
+.HourSelectorWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px;
+
+  position: static;
+  width: 152px;
+  height: 44px;
+  left: 266px;
+  top: 0px;
+
+  /* white */
+
+  background: #ffffff;
+  /* line */
+
+  border: 1px solid #dadbdf;
+  box-sizing: border-box;
+  border-radius: 8px;
+  .HourTitle {
+    width: 100px;
+  }
+}

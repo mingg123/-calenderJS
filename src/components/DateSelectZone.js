@@ -12,12 +12,14 @@ const DateSelectZone = (DateSelectZoneProps) => {
     isStart ? setTitle("시작일") : setTitle("마감일");
   }, [isStart]);
   return (
-    <div>
+    <>
       <p className="timeSelectorTitle">응시 {title}</p>
-      <DatePicker isStart={isStart} />
-      <HourSelector isStart={isStart} />
-      <MinuteSelector isStart={isStart} />
-    </div>
+      <div className="dateSelectZoneWrapper">
+        <DatePicker isStart={isStart} />
+        <HourSelector isStart={isStart} />
+        <MinuteSelector isStart={isStart} />
+      </div>
+    </>
   );
 };
 

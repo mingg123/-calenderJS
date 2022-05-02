@@ -1,0 +1,21 @@
+.minuteSelector {
+  margin-left: 32px;
+  .minuteSelectorWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 16px;
+
+    width: 152px;
+    height: 44px;
+    background: #f9f9f9;
+
+    border: 1px solid #dadbdf;
+    box-sizing: border-box;
+    border-radius: 8px;
+    .minuteTitle {
+      width: 100px;
+      height: 18px;
+    }
+  }
+}

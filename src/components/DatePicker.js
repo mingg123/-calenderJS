@@ -20,10 +20,10 @@ const DatePicker = (DatePickerProps) => {
   }
 
   return (
-    <div>
-      <div onClick={onClickDatePickZoneOpen}>
-        {getInputTitle()}
-        <img src={downArrow} />
+    <div className="dataPicker">
+      <div className="datePickerWrapper" onClick={onClickDatePickZoneOpen}>
+        <span className="dataPickerTitle"> {getInputTitle()}</span>
+        <img className="downArrow" src={downArrow} />
       </div>
       {open && (
         <div>

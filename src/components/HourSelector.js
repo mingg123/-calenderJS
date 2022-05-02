@@ -19,8 +19,8 @@ const HourSelector = (HourSelectorProps) => {
 
   return (
     <div>
-      <div onClick={onClickHourZoneOpen}>
-        <span>{getHour}</span>
+      <div className="HourSelectorWrapper" onClick={onClickHourZoneOpen}>
+        <span className="HourTitle">{getHour()}</span>
         <img src={downArrow} />
       </div>
       {open && (
