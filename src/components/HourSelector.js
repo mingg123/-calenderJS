@@ -19,41 +19,46 @@ const HourSelector = (HourSelectorProps) => {
 
   return (
     <div>
-      <div className="HourSelectorWrapper" onClick={onClickHourZoneOpen}>
+      <div
+        className={open ? "HourSelectorWrapperActive" : "HourSelectorWrapper"}
+        onClick={onClickHourZoneOpen}
+      >
         <span className="HourTitle">{getHour()}</span>
         <img src={downArrow} />
       </div>
       {open && (
-        <ul>
-          {Hour.map((hour) => {
-            return (
-              <li
-                className="option"
-                key={hour}
-                onClick={() => {
-                  setHour(`오전 ${hour} 시`, isStart);
-                  setOpen(false);
-                }}
-              >
-                오전 {hour} 시
-              </li>
-            );
-          })}
-          {Hour.map((hour) => {
-            return (
-              <li
-                className="option"
-                key={hour}
-                onClick={() => {
-                  setHour(`오후 ${hour} 시`, isStart);
-                  setOpen(false);
-                }}
-              >
-                오후 {hour} 시
-              </li>
-            );
-          })}
-        </ul>
+        <div className="HourSelectorContent">
+          <ul>
+            {Hour.map((hour) => {
+              return (
+                <li
+                  className="option"
+                  key={hour}
+                  onClick={() => {
+                    setHour(`오전 ${hour} 시`, isStart);
+                    setOpen(false);
+                  }}
+                >
+                  오전 {hour} 시
+                </li>
+              );
+            })}
+            {Hour.map((hour) => {
+              return (
+                <li
+                  className="option"
+                  key={hour}
+                  onClick={() => {
+                    setHour(`오후 ${hour} 시`, isStart);
+                    setOpen(false);
+                  }}
+                >
+                  오후 {hour} 시
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       )}
     </div>
   );

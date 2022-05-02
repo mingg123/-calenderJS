@@ -1,21 +1,52 @@
-.minuteSelector {
+.minuteSelectorZone {
   margin-left: 32px;
-  .minuteSelectorWrapper {
+  .minutesSelectorWrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0px 16px;
 
+    position: static;
     width: 152px;
     height: 44px;
-    background: #f9f9f9;
+    left: 266px;
+    top: 0px;
 
     border: 1px solid #dadbdf;
     box-sizing: border-box;
     border-radius: 8px;
+
     .minuteTitle {
       width: 100px;
-      height: 18px;
+    }
+    &.active {
+      background-color: #efefef;
+    }
+  }
+
+  .minutesSelectorContent ul {
+    width: 152px;
+    height: 236px;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    position: absolute;
+    margin-top: 8px;
+    overflow: auto;
+    z-index: 50;
+
+    li {
+      font-size: 16px;
+      padding: 14px;
+      cursor: pointer;
+    }
+
+    li:first-child {
+      margin-top: 16px;
+    }
+
+    li:hover {
+      background-color: #f9f9f9;
     }
   }
 }

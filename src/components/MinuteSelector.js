@@ -4,10 +4,11 @@ import { setMinute } from "../modules/Time";
 import "./MinuteSelector.scss";
 import downArrow from "../icons/downArrow.png";
 
+const minArr = [0, 10, 20, 30, 40, 50];
+
 const MinuteSelector = (MinuteSelectorProps) => {
   const { isStart, startTime, endTime, setMinute } = MinuteSelectorProps;
 
-  const minute = [0, 10, 20, 30, 40, 50];
   const [open, setOpen] = useState(false);
 
   const onClickMinuteZone = () => {
@@ -20,32 +21,39 @@ const MinuteSelector = (MinuteSelectorProps) => {
   };
 
   return (
-    <div className="minuteSelector">
-      <div className="minuteSelectorWrapper" onClick={onClickMinuteZone}>
-        <span className="minuteTitle">{getMinutes()}</span>
+    <div className="minuteSelectorZone">
+      <div
+        className={
+          open ? "minutesSelectorWrapper active" : "minutesSelectorWrapper"
+        }
+        onClick={onClickMinuteZone}
+      >
+        <span className="minuteTitle">{getMinutes(isStart)}</span>
         <img src={downArrow} />
-
-        {open && (
+      </div>
+      {open && (
+        <div className="minutesSelectorContent">
           <ul>
-            {minute.map((min) => {
+            {minArr.map((min, index) => {
               return (
                 <li
                   onClick={() => {
                     setMinute(`${min} 분`, isStart);
                     setOpen(false);
                   }}
-                  key={min}
+                  key={index}
                 >
                   {min} 분
                 </li>
               );
             })}
           </ul>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
+
 const mapStateToProps = (state) => {
   return {
     startTime: state.timeReducer.startTime,
