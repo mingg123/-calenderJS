@@ -21,12 +21,15 @@ const DatePicker = (DatePickerProps) => {
 
   return (
     <div className="dataPicker">
-      <div className="datePickerWrapper" onClick={onClickDatePickZoneOpen}>
+      <div
+        className={open ? "datePickerWrapper active" : "datePickerWrapper"}
+        onClick={onClickDatePickZoneOpen}
+      >
         <span className="dataPickerTitle"> {getInputTitle()}</span>
         <img className="downArrow" src={downArrow} />
       </div>
       {open && (
-        <div>
+        <div className="dataPickerContent">
           <Head />
           <Days isStart={isStart} />
         </div>

@@ -8,9 +8,12 @@ const Head = (HeadProps) => {
   const { date, changeMonth } = HeadProps;
   return (
     <div className="HeadWrapper">
-      {date.format("YYYY")}년 {date.format("MM")}월
+      <span className="HeadTitle">
+        {date.format("YYYY")}년 {date.format("MM")}월
+      </span>
       <div className="HeadBtnwrapper">
         <div
+          className="HeadRightBtn"
           onClick={() => {
             changeMonth(date.month() - 1);
           }}
