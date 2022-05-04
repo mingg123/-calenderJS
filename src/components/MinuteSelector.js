@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { connect } from "react-redux";
 import { setMinute } from "../modules/Time";
 import "./MinuteSelector.scss";
@@ -20,6 +20,13 @@ const MinuteSelector = (MinuteSelectorProps) => {
     return startTime.min;
   };
 
+  const onClickMinuteSelect = useCallback(
+    (min) => {
+      setMinute(`${min} 분`, isStart);
+      setOpen(false);
+    },
+    [setMinute, open]
+  );
   return (
     <div className="minuteSelectorZone">
       <div
@@ -38,8 +45,7 @@ const MinuteSelector = (MinuteSelectorProps) => {
               return (
                 <li
                   onClick={() => {
-                    setMinute(`${min} 분`, isStart);
-                    setOpen(false);
+                    onClickMinuteSelect(min);
                   }}
                   key={index}
                 >

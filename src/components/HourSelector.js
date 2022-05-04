@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { connect } from "react-redux";
 import { setHour } from "../modules/Time";
 import "./HourSelector.scss";
@@ -17,6 +17,17 @@ const HourSelector = (HourSelectorProps) => {
     return startTime.hour;
   };
 
+  const onClickHourSelect = useCallback(
+    (hour, isAm) => {
+      if (isAm) {
+        setHour(`오전 ${hour} 시`, isStart);
+      } else {
+        setHour(`오후 ${hour} 시`, isStart);
+      }
+      setOpen(false);
+    },
+    [setHour, open]
+  );
   return (
     <div>
       <div
@@ -35,8 +46,7 @@ const HourSelector = (HourSelectorProps) => {
                   className="option"
                   key={hour}
                   onClick={() => {
-                    setHour(`오전 ${hour} 시`, isStart);
-                    setOpen(false);
+                    onClickHourSelect(hour, true);
                   }}
                 >
                   오전 {hour} 시
@@ -49,8 +59,7 @@ const HourSelector = (HourSelectorProps) => {
                   className="option"
                   key={hour}
                   onClick={() => {
-                    setHour(`오후 ${hour} 시`, isStart);
-                    setOpen(false);
+                    onClickHourSelect(hour, false);
                   }}
                 >
                   오후 {hour} 시

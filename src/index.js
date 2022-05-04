@@ -7,7 +7,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./modules";
 import { Provider } from "react-redux";
 
-const store = configureStore({ reducer: rootReducer });
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
+});
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>

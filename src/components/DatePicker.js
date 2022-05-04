@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { connect } from "react-redux";
 import { changeMonth } from "../modules/Date";
 import "./DatePicker.scss";
@@ -10,9 +10,9 @@ const DatePicker = (DatePickerProps) => {
   const { isStart, startDate, endDate } = DatePickerProps;
   const [open, setOpen] = useState(false);
 
-  const onClickDatePickZoneOpen = () => {
+  const onClickDatePickZoneOpen = useCallback(() => {
     setOpen(!open);
-  };
+  }, [open]);
 
   function getInputTitle() {
     if (isStart) return startDate.format("LL");
